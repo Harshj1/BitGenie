@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Sentiments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 <body>
-$END$
+{% for each in result %}
+    <div class="row" style="align-self: center">
+        <div class="col s6 offset-s3">
+            {% if each.sentiment == 'positive' %}
+                <div class="card blue lighten-1">
+                    <div class="card-content black-text">
+                        <span class="card-title">{{ each.twitter_handle }}</span>
+                        <p>{{ each.tweets }}</p>
+                    </div>
+                    <div class="card-content black-text" style="font-weight: bold">
+                        <p>{{ each.sentiment }}</p>
+                    </div>
+                </div>
+            {% else %}
+                <div class="card red lighten-1">
+                    <div class="card-content black-text">
+                        <span class="card-title">{{ each.twitter_handle }}</span>
+                        <p>{{ each.tweets }}</p>
+                    </div>
+                    <div class="card-content black-text" style="font-weight: bold">
+                        <p>{{ each.sentiment }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
 </body>
 </html>
