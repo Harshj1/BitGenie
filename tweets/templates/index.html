@@ -9,25 +9,25 @@
 </head>
 <body>
 {% for each in result %}
-    <div class="row" style="align-self: center">
+    <div class="row">
         <div class="col s6 offset-s3">
             {% if each.sentiment == 'positive' %}
-                <div class="card blue lighten-1">
+                <div class="card blue lighten-3">
                     <div class="card-content black-text">
                         <span class="card-title">{{ each.twitter_handle }}</span>
                         <p>{{ each.tweets }}</p>
                     </div>
-                    <div class="card-content black-text" style="font-weight: bold">
+                    <div class="card-content black-text" style="font-weight: bold; font-size: 20px">
                         <p>{{ each.sentiment }}</p>
                     </div>
                 </div>
             {% else %}
-                <div class="card red lighten-1">
+                <div class="card red lighten-3">
                     <div class="card-content black-text">
                         <span class="card-title">{{ each.twitter_handle }}</span>
                         <p>{{ each.tweets }}</p>
                     </div>
-                    <div class="card-content black-text" style="font-weight: bold">
+                    <div class="card-content black-text" style="font-weight: bold; font-size: 20px">
                         <p>{{ each.sentiment }}</p>
                     </div>
                 </div>

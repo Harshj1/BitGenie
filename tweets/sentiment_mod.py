@@ -93,10 +93,11 @@ def main():
     # save_classifier.close()
     file_name = os.path.join(os.path.dirname(os.path.dirname(__file__)),'tweets/static/testpickles.pickle')
     classifier_pkl_opn = open(file_name, "rb")
+    # classifier_pkl_opn = open('testpickles.pickle','rb')
     classifier_pkl = pickle.load(classifier_pkl_opn)
 
-    # print(classifier_pkl.show_most_informative_features(32))
-    # tweet = 'I love to go to school'
+    print(classifier_pkl.show_most_informative_features(32))
+    # tweet = 'He is bad'
     # print(classifier_pkl.classify(Initialize.extract_features(tweet.split())))
 
     for tweet_split in init_test:
@@ -106,17 +107,21 @@ def main():
         # print(tweet_split)
 
         # for label in dist.samples():
-            # print("%s: %f" % (label, dist.prob(label)))
+        #     print("%s: %f" % (label, dist.prob(label)))
+
+
         # print(pos)
         # sentiment = ''
-        if ((pos - neg) > 0.35):
+        if ((pos - neg) > 0.3):
             sentiment_list.append("positive")
-        elif ((neg - pos) > 0.35):
+        elif ((neg - pos) > 0.3):
             sentiment_list.append("negative")
         else:
             sentiment_list.append("neutral")
-    # print(sentiment_list)
+    print(sentiment_list)
     dictionary = dict(zip(Initialize.test_tweets_start, sentiment_list))
+    print(dictionary)
+    sentiment_list.clear()
     return dictionary
 
 
