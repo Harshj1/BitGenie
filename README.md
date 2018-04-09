@@ -6,4 +6,4 @@
 </td>
 </tr>
 </table>
-![](https://github.com/Harshj1/BitGenie/blob/master/Demo.png)
+<p><img src="Demo.png"></p>
